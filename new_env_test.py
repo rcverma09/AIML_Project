@@ -1,18 +1,25 @@
 import pandas as pd
 import numpy as np
 
-def main():
-    print("NumPy array example:")
-    arr = np.array([1, 2, 3, 4, 5])
-    print(arr)
+def fibonacci_series(n):
+    """Generate Fibonacci series up to n terms"""
+    fib_series = []
+    a, b = 0, 1
+    
+    for _ in range(n):
+        fib_series.append(a)
+        a, b = b, a + b
+    
+    return fib_series
 
-    print("\nPandas DataFrame example:")
-    data = {
-        'Name': ['Alice', 'Bob', 'Charlie'],
-        'Age': [25, 30, 35]
-    }
-    df = pd.DataFrame(data)
-    print(df)
+def main():
+    print("Fibonacci Series (up to 20 terms):")
+    fib = fibonacci_series(20)
+    print(fib)
+    
+    print("\nFormatted Fibonacci Series:")
+    for i, num in enumerate(fib, 1):
+        print(f"Term {i}: {num}")
 
 if __name__ == "__main__":
     main()
